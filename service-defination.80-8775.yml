@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fruit-site-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8775
+  selector:
+    app: fruite-web-server

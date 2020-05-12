@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-site-deployement
+  labels:
+    app: fruite-web-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fruite-web-server
+  template:
+    metadata:
+      name: fruit-pod
+      labels:
+        app: fruite-web-server
+    sepc:
+      containers:
+        name: fruit-service
+        image: docker.io/vikasg619/fruit-service
+        ports:
+        - containerPort: 8775
+          protocol: TCP
+      
+
+    
+    
+    
+    
