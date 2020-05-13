@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: fruit-service
+spec:
+    containers:
+      - name: legacy-service
+        image: vikasg619/fruit-service 
+      - name: haproxy-ambassador
+        image: haproxy:1.7
+        ports:
+          - containerPort: 80
+            protocol: TCP
+        volumeMounts:
+          - mountPath: /usr/local/etc/haproxy
+            name: config-volume
+    volumes:
+      - name: config-volume
+        configMap: 
+          name: fruit-service-ambassador-config

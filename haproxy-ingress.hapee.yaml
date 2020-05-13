@@ -80,7 +80,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: haproxy-configmap
+  name: fruit-service-ambassador-config
   namespace: default
 data:
 
@@ -150,7 +150,7 @@ spec:
       - name: haproxy-ingress
         image: kubernetes-registry.haproxy.com/hapee-ingress
         args:
-          - --configmap=default/haproxy-configmap
+          - --configmap=default/fruit-service-ambassador-config
           - --default-backend-service=haproxy-controller/ingress-default-backend
         resources:
           requests:
